@@ -1,11 +1,11 @@
 from flask import Blueprint, request
-from database.postservice import get_all_photo_db, get_exact_post_db, delete_exact_post_db, post_new_photo_db, add_new_post_db, create_post_for_hashtag, change_post_text_db
+from database.postservice import get_all_posts_db, get_exact_post_db, delete_exact_post_db, post_new_photo_db, add_new_post_db, create_post_for_hashtag, change_post_text_db
 
 post_bp = Blueprint('post', __name__, url_prefix='/post')
 
 @post_bp.route('/', methods = ['GET'])
 def get_all_user_posts():
-    all_posts = get_all_photo_db()
+    all_posts = get_all_posts_db()
     return {'status': 1, 'message':all_posts}
 
 @post_bp.route('/<int:post_id>', methods= ['GET'])

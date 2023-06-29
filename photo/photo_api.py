@@ -49,9 +49,9 @@ def change_user_photo(photo_id : int,user_id : int):
     return {'status': 1, 'messsage': 'changed'}
 
 #delete photo
-@photo_bp.route('/int:user_id/<int:photo_id>',methods=['DELETE'])
-def delete_user_photo(user_id : int,photo_id : int):
-    delete_photo = delete_photo_db(user_id, photo_id)
+@photo_bp.route('/<int:photo_id>',methods=['DELETE'])
+def delete_user_photo(photo_id : int):
+    delete_photo = delete_photo_db(photo_id)
 
     if delete_photo:
         return {'status':1,'message':delete_photo}
